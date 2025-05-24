@@ -17,3 +17,27 @@ Linux assigns permissions to three types of users:
 * Write (w) – Allows modifying file contents or creating/deleting files in a directory.
 
 * Execute (x) – Allows running a file as a program or accessing a directory.
+
+### Viewing Permissions
+
+* Run `ls -l` to see permissions
+
+![ls](./img/ls%20-l.png)
+
+*-rw-r--r-- 1 user group 1024 May 25 10:00 file.txt*
+
+* The first part (-rw-r--r--) shows permissions:
+
+   *  = File type (- for file, d for directory).
+
+  * rw- = Owner permissions (read, write).
+
+  - r-- = Group permissions (read).
+
+  - r-- = Others permissions (read).
+
+  ### Changing Permissions with `chmod`
+
+  #### Use chmod to modify permissions in two ways:
+
+  **Symbolic Mode(u,g,o,a)**
