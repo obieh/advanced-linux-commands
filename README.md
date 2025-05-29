@@ -110,7 +110,58 @@ chgrp group file.txt
 ![](./img/sudo-i.png)
 
 ### Create a new user account
-* Run `sudo 
+* Run `sudo adduser johndoe` to create a user named johndoe
+
+![](./img/johndoe.png)
+
+* Run `sudo usermod -aG sudo johndoe` to add johndoe to sudo group which give johnedoe administrative privileges.
+
+![](./img/sudo-john-doe.png)
+
+## Connecting to ec2 instance as johndoe.
+### Copy existing key Run the following commnads
+
+```bash
+sudo mkdir -p /home/johndoe/.ssh #Create .ssh folder in johndoes's home dir
+sudo cp ~/.ssh/authorized_keys /home/johndoe/.ssh/ #Copy authorised key to johnedoe .ssh folder.
+sudo chown -R johndoe:johndoe /home/johndoe/.ssh
+sudo chmod 700 /home/johndoe/.ssh
+sudo chmod 600 /home/johndoe/.ssh/authorized_keys
+```
+![](./img/chmod-4-john-doe.png)
+
+* `chown` → "Change owner" (the command to modify ownership).
+* `-R`→ Recursive, meaning it applies to
+    - The specified directory and
+    - All files/subdirectories inside it.
+
+* `john:john` → Sets:
+    - User owner = john
+    - Group owner = john
+
+* `/home/johndoe/.ssh` → The target director
+
+### Now connect to the ec2 as john doe
+* log out as user ubuntu
+* Run `ssh -i /path/to/key.pem johndoe@ec2-18-209-60-216.compute-1.amazonaws.com`
+
+![](./img/login-in-as%20johndoe.png)
+
+![](./img/logged-in-as-johndoe.png)
+
+* Run `echo ~` to see home directory of johndoe
+
+![](./img/echo~johndoe.png)
+
+* Run `cd /home/johndoe` to get to johndoe's home directory.
+
+![](./img/cd-home-jdoe.png)
+
+### Switch User Accounts
+* Type 'exit' to leave johndoe account
+* Run `su johndoe` to login as user johndoe, type password when prompted.
+
+![](./img/login-new-pw-johndoe.png)
 
 ### Special Permissions
 * Set User ID (SUID) (4) – Executes as the owner (e.g., **chmod 4755**).
