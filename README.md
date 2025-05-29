@@ -54,6 +54,7 @@ Linux assigns permissions to three types of users:
   chmod a+rw file.txt    # Give read-write to all
   ```
 
+
 #### Numeric Mode (Octal)
 * Each permission has a number:
   - 4 = Read (r)
@@ -70,6 +71,23 @@ Linux assigns permissions to three types of users:
 chmod 755 script.sh    # rwxr-xr-x (Owner: rwx, Group/Others: r-x)
 chmod 644 file.txt     # rw-r--r-- (Owner: rw-, Group/Others: r--)
 ```
+### Create a file, check and change permision
+
+* Run `touch script.sh` to create the file
+* Run `ls -latr script.sh` to check permission
+* Run `chmod +x` to add execute permission
+* Run `chmod 755` to add execute permission to user, group and others
+
+![](./img/chmod755.png)
+
+### Create a text file and check permissions
+* Run `touch file.txt`
+* Run `chmod 777 file.txt`
+* Run `ls -latr note.txt`
+
+
+![](./img/ls%20-l.png)
+
 ### Changing Ownership with `chown` & `chgrp`
 * **chown** changes the *owner* of a file:
 
@@ -81,6 +99,18 @@ chown user:group file.txt
 ```bash
 chgrp group file.txt
 ```
+### Change ownership of script.sh to user named johndoe who is in developers group.
+* Run `sudo chown johndoe:developers /home/ubuntu/script.sh`
+![](./img/chmod-user&group.png)
+
+### Super User privilleges
+- The superuser, or we can say root, is a special user account used for system administration purposes on Linux. They have all rights on the files like read write execute. However, if you are the root user and want to perform administrative task, prefix the command with `sudo`
+* Run `sudo -i` to switch account to root. Type `exit` to switch back to your user account.
+
+![](./img/sudo-i.png)
+
+### Create a new user account
+* Run `sudo 
 
 ### Special Permissions
 * Set User ID (SUID) (4) – Executes as the owner (e.g., **chmod 4755**).
