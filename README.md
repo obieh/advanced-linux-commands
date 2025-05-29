@@ -161,7 +161,50 @@ sudo chmod 600 /home/johndoe/.ssh/authorized_keys
 * Type 'exit' to leave johndoe account
 * Run `su johndoe` to login as user johndoe, type password when prompted.
 
+![](./img/su-john-doe.png)
+
+* Run `ls -latr` to see files and directories in johndoe's home dir
+
+![](./img/ls-latr-johndoe.png)
+
+### Changing User Password.
+
+* To change johndoe's password run `sudo passwd johndoe`
+
+![](./img/sudo-pwd-john-doe.png)
+
+* To login with the updated password for user johndoe. Run `su johndoe`
+
 ![](./img/login-new-pw-johndoe.png)
+
+### Create a group
+
+* To create a group run `sudo groupadd developers` to create a group named developers.
+
+![](./img/group-add-dev.png)
+
+* Run `getent group devops` to verify group creation.
+
+![](./img/devops-add-verify.png)
+
+* To add johndoe to the developers group run `sudo usermod -aG developers johndoe`. Then run `id johndoe` to verify user group.
+
+![](./img/gruop-add-id-johndoe.png)
+
+### Deleting a user
+
+* Run `sudo userdel jonmark` to delete a user named jonmark
+
+![](./img/del-user.png)
+
+### Group Permission
+
+* To give members of developers group access to developer directory. Run `sudo chown :developers /path/to/directory`
+
+![](./img/chwon-group.png)
+* To add read and write permission. Run `sudo chmod g+rw /path/to/directory`
+
+![](./img/sudo%20chmod-group.png)
 
 ### Special Permissions
 * Set User ID (SUID) (4) – Executes as the owner (e.g., **chmod 4755**).
