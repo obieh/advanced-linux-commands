@@ -275,6 +275,10 @@ exit
 ![](./img/ravi-tunji-workspace.png)
 ![](./img/sofia-workspace.png)
 
+### Verify members of devops group
+* Run `getent group devops`
+
+![](./img/getent-devops.png)
 
 ### Special Permissions.
 * Set User ID (SUID) (4) – Executes as the owner (e.g., **chmod 4755**).
