@@ -206,7 +206,77 @@ sudo chmod 600 /home/johndoe/.ssh/authorized_keys
 
 ![](./img/sudo%20chmod-group.png)
 
-### Special Permissions
+### Create a group named 'devops'
+
+* Run `sudo groupadd devops` to create devops group.
+* Run `getent group devops` to verify creation of devops group.
+
+![](./img/devops-add-verify.png)
+
+### Create 5 Users, Mary, Mohammed, Ravi, Tunji and Sofia.
+
+```bash
+sudo useradd -m -G devops mary
+sudo useradd -m -G devops mohammed
+sudo useradd -m -G devops ravi
+sudo useradd -m -G devops tunji
+sudo useradd -m -G devops sofia
+```
+![](./img/create-5-users.png)
+
+* -m → Creates a home directory for the user
+* -G devops → Adds the user to the devops group.
+
+### Verify group creation
+
+* Run `group ussername` to see group user belong to.
+![](./img/verify-groups.png)
+
+### Create workspace folder for each user
+```bash
+sudo mkdir /home/mary/workspace
+sudo mkdir /home/mohammed/workspace
+sudo mkdir /home/ravi/workspace
+sudo mkdir /home/tunji/workspace
+sudo mkdir /home/sofia/workspace
+```
+![](./img/mkdir-each-user-home.png)
+
+### Set Ownership to devops Group & Correct Permissions
+```bash
+sudo chown mary:devops /home/mary/workspace
+sudo chown mohammed:devops /home/mohammed/workspace
+sudo chown ravi:devops /home/ravi/workspace
+sudo chown tunji:devops /home/tunji/workspace
+sudo chown sofia:devops /home/sofia/workspace
+
+# Set permissions (770 = Owner & Group have full access, Others have none)
+sudo chmod 770 /home/*/workspace
+```
+![](./img/home-dir-ownership.png)
+
+### Verify users and gruops
+* To see a user group and permissions. Run `sudo ls -ld /home/user/workspace`
+
+![](./img/verify-last.png)
+
+### Verify All Users Can Access Their Folders
+
+* Run the set of command below to verify if users can access their workspace
+
+```bash
+sudo su - mary
+cd ~/workspace
+touch test_file
+ls -l  # Should show the file owned by 'mary' with group 'devops'
+exit
+```
+![](./img/mary-moha-workspace.png)
+![](./img/ravi-tunji-workspace.png)
+![](./img/sofia-workspace.png)
+
+
+### Special Permissions.
 * Set User ID (SUID) (4) – Executes as the owner (e.g., **chmod 4755**).
 
 * Set Group ID (SGID) (2) – Executes as the group (e.g., **chmod 2755**).
@@ -215,5 +285,5 @@ sudo chmod 600 /home/johndoe/.ssh/authorized_keys
 
   - `chmod +t /shared_dir`
 
-### Default Permissions (`umask`)
+
 
