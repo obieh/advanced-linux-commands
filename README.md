@@ -82,11 +82,11 @@ chmod 644 file.txt     # rw-r--r-- (Owner: rw-, Group/Others: r--)
 
 ### Create a text file and check permissions
 * Run `touch file.txt`
-* Run `chmod 777 file.txt`
+* Run `chmod 777 note.txt`
 * Run `ls -latr note.txt`
 
 
-![](./img/ls%20-l.png)
+![](./img/la-latr-note.png)
 
 ### Changing Ownership with `chown` & `chgrp`
 * **chown** changes the *owner* of a file:
