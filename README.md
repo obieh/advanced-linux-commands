@@ -289,5 +289,5 @@ exit
 
   - `chmod +t /shared_dir`
 
-
+## Hope you followed through and it was informative for you.
 
