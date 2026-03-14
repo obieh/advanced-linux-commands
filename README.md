@@ -48,8 +48,8 @@ Linux assigns permissions to three types of users:
   #### Examples
 
   ```bash
-  chmod u+x script.sh    # Add execute for owner
-  chmod g-w file.txt     # Remove write for group
+  chmod u+x script.sh    # Add execute for owner.
+  chmod g-w file.txt     # Remove write for group.
   chmod o=r-- file.txt   # Set others to read-only
   chmod a+rw file.txt    # Give read-write to all
   ```
