@@ -1,7 +1,7 @@
-# Advanced Linux commands
+# Advanced Linux commands.
 ## This Project Demonstrates advanced linux commands and how to use them.
 
-### Basic File Permissions
+### Basic File Permissions.
 Linux assigns permissions to three types of users:
 
 * Owner (User) – The user who created the file.
