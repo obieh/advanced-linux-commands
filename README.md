@@ -18,7 +18,7 @@ Linux assigns permissions to three types of users:
 
 * Execute (x) – Allows running a file as a program or accessing a directory.
 
-### Viewing Permissions
+### Viewing Permissions.
 
 * Run `ls -l` to see permissions
 
